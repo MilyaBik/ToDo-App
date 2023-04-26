@@ -1,6 +1,9 @@
 import React from 'react';
+import  AddListButton from './components/AddList';
+
 import List from './components/List';
 import listSvg from './assets/img/list.svg'
+
 
 
 
@@ -8,14 +11,13 @@ function App() {
   return (
     <div className="todo">
         <div className="todo__sidebar">
-          <List items = {[
-            {
-              icon: <i>
-                      <img src={listSvg} alt="list icon"/>
-                    </i>,
-              name: 'Все задачи',
-            },
-          ]} />
+          <List 
+            items = {[
+              {
+                icon: <i><img src={listSvg} alt="list icon"/></i>,
+                name: 'Все задачи',
+              },
+            ]} />
 
           <List items = {[
             {
@@ -24,7 +26,8 @@ function App() {
             },
             {
               color: 'blue',
-              name: 'Фронтенд'
+              name: 'Фронтенд',
+              active: true
             },
             {
               color: 'pink',
@@ -34,6 +37,10 @@ function App() {
           ]}
           isRemovable
           />
+
+       
+        <AddListButton />
+
         </div>
         <div className="todo__tasks">
           
