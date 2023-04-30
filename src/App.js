@@ -1,6 +1,8 @@
 import React from 'react';
 import  AddListButton from './components/AddList';
 
+import DB from './assets/db.json'
+
 import List from './components/List';
 import listSvg from './assets/img/list.svg'
 
@@ -39,7 +41,7 @@ function App() {
           />
 
        
-        <AddListButton />
+        <AddListButton colors={DB.colors}/>
 
         </div>
         <div className="todo__tasks">

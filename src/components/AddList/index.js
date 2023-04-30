@@ -6,7 +6,7 @@ import plusSvg from '../../assets/img/plus-black.svg'
 
 
 
-const AddList = () => {
+const AddList = ({colors}) => {
 
     const [visiblePopup, setVisiblePopup] = useState(true);
 
@@ -23,6 +23,13 @@ const AddList = () => {
             ]} />
             {visiblePopup && (<div className="add-list__popup">
                 <input className="field" type="text" placeholder="Название списка"/>
+                <div className="add-list__pop-colors">
+                <ul>
+                    <li></li>
+                    <li></li>
+                </ul>
+                </div>
+                <button className='button'>Добавить</button>
             </div>)}
         </div>
     )
