@@ -13,6 +13,7 @@
 
 .todo {
   position: absolute;
+  display: flex;
   left: 50%;
   top: 50%;
   width: 750px;
@@ -22,6 +23,7 @@
   border-radius: 10px;
   border: 1px solid #f1f1f1;
   font-size: 14px;
+
   &__sidebar {
     padding: 60px 20px;
     background-color: #f5f5f5;
@@ -29,7 +31,15 @@
     height: 100%;
     border-right: 1px solid #f1f1f1;
   }
+
+  &__tasks {
+    flex: 1;
+    padding: 60px;
+  }
 }
+
+
+
 
 .button {
   padding: 10px 20px;

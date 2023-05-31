@@ -9,7 +9,7 @@ import closeSvg from '../../assets/img/close.svg';
 
 const AddList = ({colors, onAdd}) => {
 
-    const [visiblePopup, setVisiblePopup] = useState(true);
+    const [visiblePopup, setVisiblePopup] = useState(false);
     const [selectedColor, selectColor] = useState(colors[0].id);
     const [inputValue, setInputValue] = useState('');
 
@@ -28,8 +28,8 @@ const AddList = ({colors, onAdd}) => {
         onAdd({
             id: Math.random(),
             name: inputValue,
-            color}
-        );
+            colorId: color
+        });
         onClose();
     }
 
@@ -46,7 +46,7 @@ const AddList = ({colors, onAdd}) => {
             ]} />
             {visiblePopup && (<div className="add-list__popup">
                 <img 
-                onClick={onclose}
+                onClick={onClose}
                 src={closeSvg} 
                 alt="Close button" 
                 className='add-list__popup-close-btn' 
