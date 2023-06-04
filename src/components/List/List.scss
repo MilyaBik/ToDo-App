@@ -17,17 +17,18 @@
       align-items: center;
       padding: 10px 12px;
       cursor: pointer;
-
-      &:hover #{$self}__remove-icon {
-        opacity: .2;
-      }
-
-      #{$self}__remove-icon {
-        opacity: 0;
-  
-        &:hover {
-          opacity: .8;
+      transition: background-color 0.15s ease-in-out;
+        &:hover #{$self}__remove-icon {
+          opacity: .2;
         }
+
+        #{$self}__remove-icon {
+          opacity: 0;
+          transition: opacity 0.15s ease-in-out;
+
+          &:hover {
+            opacity: .8;
+          }
       }
 
     

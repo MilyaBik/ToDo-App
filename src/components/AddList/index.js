@@ -1,4 +1,6 @@
 import React, {useState} from 'react';
+import axios from 'axios';
+
 import List from '../List';
 import './AddList.scss';
 import Badge from '../Badge';
@@ -25,11 +27,12 @@ const AddList = ({colors, onAdd}) => {
             return;
         }
         const color = colors.filter(c => c.id === selectedColor)[0].name;
-        onAdd({
-            id: Math.random(),
-            name: inputValue,
-            colorId: color
+        axios.post('http://localhost:3001/lists', { name: inputValue, colorId: color}).then(({ data }) => {
+            console.log(data)
         });
+        // onAdd({
+            
+        // });
         onClose();
     }
 
