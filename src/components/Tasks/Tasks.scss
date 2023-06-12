@@ -23,11 +23,60 @@
       }
     }
 
+    &__form {
+      margin-top: 10px;
+
+      &-block {
+        .button {
+          margin-right: 10px;
+          margin-top: 15px;
+        }
+      }
+
+      &-new {
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        opacity: .4;
+        transition: opacity .15s ease-in-out;
+
+        &:hover {
+          opacity: 0.8;
+        }
+
+        img {
+          width: 16px;
+          height: 16px;
+          margin-left: 5px;
+        }
+
+        span {
+          font-size: 16px;
+          margin-left: 19px;
+        }
+      }
+    }
+
     &__items {
       margin-top: 30px;
+
+      h2 {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        font-weight: 700;
+        font-family: Montserrat;
+        font-size: 22px;
+        color: #c9d1d3;
+        text-align: center;
+      }
+
+
       &-row {
         display: flex;
         align-items: center;
+        margin-bottom: 15px;
+
         input {
           margin-left: 15px;
           border: 0;

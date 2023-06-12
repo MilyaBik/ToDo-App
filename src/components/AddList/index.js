@@ -12,7 +12,8 @@ import closeSvg from '../../assets/img/close.svg';
 const AddList = ({colors, onAdd}) => {
 
     const [visiblePopup, setVisiblePopup] = useState(false);
-    const [selectedColor, selectColor] = useState(colors[0].id);
+    const [selectedColor, selectColor] = useState(3);
+    const [isLoading, setIsLoading] = useState(false);
     const [inputValue, setInputValue] = useState('');
 
     const onClose = () => {
@@ -26,14 +27,26 @@ const AddList = ({colors, onAdd}) => {
             alert('Введите название списка');
             return;
         }
-        const color = colors.filter(c => c.id === selectedColor)[0].name;
-        axios.post('http://localhost:3001/lists', { name: inputValue, colorId: color}).then(({ data }) => {
-            console.log(data)
-        });
-        // onAdd({
-            
-        // });
-        onClose();
+        setIsLoading(true);
+        
+        axios
+            .post('http://localhost:3001/lists', { 
+                name: inputValue, 
+                colorId: selectedColor
+            })
+            .then(({ data }) => {
+                const color = colors.filter(c => c.id === selectedColor)[0].name;
+                const listObj = {...data, color: { name: color }};
+                onAdd(listObj);
+                onClose();
+                
+            })
+            .catch(() => {
+                alert('Ошибка при добавлении списка!')
+            })
+            .finally(() => {
+                setIsLoading(false);
+            });
     }
 
     return (
@@ -70,7 +83,7 @@ const AddList = ({colors, onAdd}) => {
                     />)
                     }
                 </div>
-                <button onClick={addList} className='button'>Добавить</button>
+                <button onClick={addList} className='button'>{isLoading ? 'Добавление...' : 'Добавить'}</button>
             </div>)}
         </div>
     )
