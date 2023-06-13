@@ -37,7 +37,7 @@ const addTask = () => {
 }
 
 return (
-    <div className="tascs__form">
+    <div className="tasks__form">
         {!visibleForm ? 
         (<div onClick={toogleFormVisible} className="tasks__form-new">
             <img src={addSvg} alt="Add icon" />
